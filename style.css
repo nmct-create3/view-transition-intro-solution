@@ -1,0 +1,129 @@
+:root {
+    /* windows logo colors */
+    --windows-blue: #0078D7;
+    --windows-green: #00BC0C;
+    --windows-yellow: #FFB900;
+    --windows-red: #FF0000;
+}
+
+/* reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+/* global page styles */
+
+html {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* smooth font rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+}
+
+.list-reset {
+    list-style: none;
+    padding: 0;
+}
+
+.nav__list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 100px));
+    gap: 1rem;
+    /* grid-template-rows: repeat(2, minmax(0, 100px)); */
+}
+
+.nav__item {
+    aspect-ratio: 1/1;
+    display: grid;
+}
+
+.nav__link {
+    display: block;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    text-indent: -9999px;
+
+    .nav__item--one & {
+        background-color: var(--windows-blue);
+        view-transition-name: page-one;
+    }
+
+    .nav__item--two & {
+        background-color: var(--windows-green);
+        view-transition-name: page-two;
+    }
+
+    .nav__item--three & {
+        background-color: var(--windows-yellow);
+        view-transition-name: page-three;
+    }
+
+    .nav__item--four & {
+        background-color: var(--windows-red);
+        view-transition-name: page-four;
+    }
+}
+
+.page {
+    height: 80vh;
+    width: 80vw;
+    color: white;
+    display: grid;
+    place-items: center;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.page--one {
+    background-color: var(--windows-blue);
+    view-transition-name: page-one;
+}
+
+.page--two {
+    background-color: var(--windows-green);
+    view-transition-name: page-two;
+}
+
+.page--three {
+    background-color: var(--windows-yellow);
+    view-transition-name: page-three;
+}
+
+.page--four {
+    background-color: var(--windows-red);
+    view-transition-name: page-four;
+}
+
+.page__back {
+    place-self: start end;
+    color: white;
+}
+
+.page__body,
+.page__back {
+    grid-area: 1 / 1 / auto / auto;
+}
+
+::view-transition-old(page-one),
+::view-transition-new(page-one),
+::view-transition-old(page-two),
+::view-transition-new(page-two),
+::view-transition-old(page-three),
+::view-transition-new(page-three),
+::view-transition-old(page-four),
+::view-transition-new(page-four) {
+    height: 100%;
+}
